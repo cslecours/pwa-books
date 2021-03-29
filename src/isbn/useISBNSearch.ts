@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchBookByISBN } from "./bookApi";
 import { Book } from "./bookModel";
+import { parseISBN } from "./isbn";
 
 export const useISBNSearch = () => {
     const [book, setBook] = useState<Book | undefined>(undefined);
@@ -16,13 +17,13 @@ export const useISBNSearch = () => {
 
     useEffect(() => {
         (async () => {
-            const isValid = (value.length === 10 || value.length === 13)
-            setValid(isValid);
+            const validationResult = parseISBN(value)
+            setValid(validationResult.valid);
             setError(undefined)
-            if (isValid) {
+            if (validationResult.valid) {
                 setLoading(true);
                 try {
-                    const fetchedBook = await fetchBookByISBN(value);
+                    const fetchedBook = await fetchBookByISBN(validationResult.value);
                     setBook(fetchedBook)
                 } catch (error) {
                     setError(error)
