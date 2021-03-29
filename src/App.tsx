@@ -1,20 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
-
 import './App.css';
-import { fetchBookByISBN } from './isbn/bookApi';
 import { BookList } from './isbn/bookList';
-import { Book } from './isbn/bookModel';
+import { useISBNSearch } from './isbn/useISBNSearch';
+
 
 
 function App() {
-  const { onChange, valid, isLoading, error, book } = useISBNSearch()
+  const { onChange, valid, loading, error, book } = useISBNSearch()
 
   return (
     <div>
       <input type="text" onChange={onChange} />
       <p>
         {valid ? 'valid' : 'invalid'}<br />
-        {isLoading && 'loading...'}
+        {loading && 'loading...'}
       </p>
       {error?.toString()}
       {book && <BookList books={[book]} />}
@@ -23,7 +21,3 @@ function App() {
 }
 
 export default App;
-function classNames(): string | undefined {
-  throw new Error('Function not implemented.');
-}
-
