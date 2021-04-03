@@ -1,13 +1,15 @@
-import { BookItem } from './bookList'
 import { Book } from '../services/bookModel'
 import { getBooks } from '../services/bookStorage'
+import React from 'react'
+import { Card } from '../basic-components/Card'
+import { imageUrl } from '../services/bookApi'
 
 export const List: React.FC<{}> = () => {
   const books: Book[] = getBooks()
   return (
-    <div>
+    <div style={{margin:10}}>
       {books.map((x, i) => (
-        <BookItem key={`${x.isbn_13}-${i}`} book={x} />
+        <Card style={{marginBottom:8}} key={`${x.isbn_13}-${i}`} img={x.covers && imageUrl(x.covers[0],'M')} title={x.title} subtitle={x.subtitle} />
       ))}
     </div>
   )

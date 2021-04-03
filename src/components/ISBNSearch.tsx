@@ -2,8 +2,7 @@ import React from 'react'
 import { BookList } from './bookList'
 // import { useISBNSearch } from "../hooks/useISBNSearch"
 import { useISBNSearchQuery } from '../hooks/useISBNQuery'
-import reactifyWc from "reactify-wc";
-
+import reactifyWc from 'reactify-wc'
 
 const FastTextField = reactifyWc('fast-text-field') as any
 
@@ -14,10 +13,14 @@ export const ISBNSearch: React.FC = () => {
     <div>
       <pre>9782205049879</pre>
       <FastTextField onInput={onChange}>
-          <span slot="end">      {valid ? '✅' : '❌'}</span>
+        <span slot="start"> {'🔍'}</span>
+        <span slot="end">
+          {loading && '⏳'}
+          {valid ? '✅' : '❌'}
+        </span>
       </FastTextField>
 
-      <p>{loading && 'loading...'}</p>
+      <p></p>
       {!loading && error && 'ERROR'}
       {book && <BookList books={[book]} />}
     </div>

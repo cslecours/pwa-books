@@ -10,7 +10,7 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       'fast-design-system-provider': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
+        any,
         HTMLElement
       >
       'fast-text-field': React.DetailedHTMLProps<
