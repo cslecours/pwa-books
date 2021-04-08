@@ -6,6 +6,23 @@ import { parseISBN } from '../services/isbn'
 
 const createISBNQueryKey = (isbn: string) => ['isbn-query', isbn]
 
+export const useISBNQuery = (value: string) => {
+  const { valid, value: isbn } = parseISBN(value)
+
+  const query = useQuery<Book, Error>(
+    createISBNQueryKey(isbn),
+    () => fetchBookByISBN(isbn),
+    { retry: false, staleTime: 60_000_000, enabled:valid }
+  )
+
+  return {
+    book: query.data,
+    error: query.error,
+    loading: query.isLoading,
+    valid,
+  }
+}
+
 export const useISBNSearchQuery: () => {
   onChange: (evt: React.ChangeEvent<HTMLInputElement>) => void
   book: Book | undefined
@@ -23,19 +40,10 @@ export const useISBNSearchQuery: () => {
     [setValue]
   )
 
-  const { valid, value: isbn } = parseISBN(value)
-
-  const query = useQuery<Book, Error>(
-    createISBNQueryKey(value),
-    () => fetchBookByISBN(isbn),
-    { retry: false, staleTime: 60_000_000, enabled: valid }
-  )
+  const query = useISBNQuery(value)
 
   return {
     onChange,
-    book: query.data,
-    error: query.error,
-    loading: query.isLoading,
-    valid,
+    ...query
   }
 }

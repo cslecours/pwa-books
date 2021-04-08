@@ -1,11 +1,10 @@
 import React from 'react'
-import { Card } from '../basic-components/Card'
+import { Card } from '../basic-components/Card/Card'
 import { imageUrl } from '../services/bookApi'
 import { Book } from '../services/bookModel'
 import { addBook } from '../services/bookStorage'
-import reactifyWc from 'reactify-wc'
+import { Button } from '../basic-components/Button/Button'
 
-const FastButton = reactifyWc('fast-button') as any
 
 export const BookList: React.FC<{ books: Book[] }> = ({ books }) => {
   return (
@@ -17,14 +16,14 @@ export const BookList: React.FC<{ books: Book[] }> = ({ books }) => {
             title={book.title}
             subtitle={book.subtitle}
           >
-            <FastButton
+            <Button
               style={{ margin: 'calc(var(--design-unit) * 2px)' }}
               onClick={() => {
                 addBook(book)
               }}
             >
               Add
-            </FastButton>
+            </Button>
           </Card>
 
           <code>

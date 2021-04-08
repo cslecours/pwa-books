@@ -6,7 +6,7 @@
 
 .card h3 {
     margin:calc(var(--design-unit) * 1px) 0 0 calc(var(--design-unit) * 1px);
-    font-size: var(--type-ramp-base-font-size)
+    font-size: var(--base-font-size)
 }
 
 .cardContainer {

@@ -1,7 +1,7 @@
 import { Book } from '../services/bookModel'
 import { getBooks } from '../services/bookStorage'
 import React from 'react'
-import { Card } from '../basic-components/Card'
+import { Card } from '../basic-components/Card/Card'
 import { imageUrl } from '../services/bookApi'
 
 export const List: React.FC<{}> = () => {

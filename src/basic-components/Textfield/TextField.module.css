@@ -1,0 +1,29 @@
+.textfield {
+    --border-radius: calc(var(--design-unit) * 1px);
+    --border-size: 1px;
+    --border-type: solid;
+    --border-color: #333;
+    --padding: calc(var(--design-unit) * 1px);
+
+    display:inline-block;
+    border : var(--border-size) var(--border-type) var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+
+}
+
+.textfield:focus-within {
+    border-width: calc(var(--border-size)*2);
+    padding:calc(var(--padding) - 1px);
+    box-sizing: content-box;
+}
+
+.textfield input {
+    border: 0;
+    outline:none;
+}
+
+.textfield input:active, .textfield input:focus {
+    border:0;
+    outline: 0;
+}

@@ -1,8 +1,0 @@
-  fast-card > fast-button {
-    align-self: flex-end;
-  }
-
-a {
-    color: var(--neutral-foreground-rest);
-    text-decoration: unset;
-}

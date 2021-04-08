@@ -1,8 +1,5 @@
 import React from 'react'
-import reactifyWc from 'reactify-wc'
 import styles from './Card.module.css'
-
-const FastCard = reactifyWc('fast-card') as any
 
 
 export const Card: React.FC<{
@@ -10,9 +7,10 @@ export const Card: React.FC<{
   subtitle: string
   img?: string
 } & React.HTMLProps<HTMLDivElement>> = ({ title, subtitle, img, children, ...rest }) => {
+
   return (
-    <FastCard className={styles.card} {...rest}>
-      {img && <img src={img} alt="book" />}
+    <div className={styles.card} {...rest}>
+      {img && <img src={img} alt="book" height={100} width={75}/>}
       <div className={styles.cardContainer}>
       <h3>
         {title} - {subtitle}
@@ -20,6 +18,6 @@ export const Card: React.FC<{
       {children}
       </div>
       
-    </FastCard>
+    </div>
   )
 }
