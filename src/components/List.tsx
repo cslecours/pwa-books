@@ -8,7 +8,6 @@ import { BookDetailsRouteMatch } from '../routes/config'
 
 export const List: React.FC<{}> = () => {
   const books: Book[] = getBooks()
-  console.warn(books[0].isbn_13)
   return (
     <div>
       {books.map((x, i) => (
