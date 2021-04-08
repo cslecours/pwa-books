@@ -6,7 +6,7 @@ import { BookDetailsRouteMatch, BookISBNSearchRouteMatch, BookListRouteMatch } f
 function makeRoute(routeMatch: string, importMethod: () => Promise<{ default: React.ComponentType<any> }>) {
     const LazyComponent = lazy(importMethod)
     return (
-      <Route exact path={routeMatch}>
+      <Route exact path={routeMatch} key={routeMatch}>
         <Suspense fallback="">
           <LazyComponent />
         </Suspense>
@@ -15,7 +15,7 @@ function makeRoute(routeMatch: string, importMethod: () => Promise<{ default: Re
   }
   
 export const Routes = [
-    makeRoute(BookISBNSearchRouteMatch, () => import('../components/ISBNSearch')),
     makeRoute(BookListRouteMatch, () => import('../components/List')),
+    makeRoute(BookISBNSearchRouteMatch, () => import('../components/ISBNSearch')),
     makeRoute(BookDetailsRouteMatch, () => import('./book-details'))
 ]

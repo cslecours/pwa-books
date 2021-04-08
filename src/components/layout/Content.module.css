@@ -1,0 +1,6 @@
+.content {
+    margin: calc(var(--design-unit) * 2px);
+    padding: calc(var(--design-unit) * 1px);
+
+    min-height: 300px;
+}

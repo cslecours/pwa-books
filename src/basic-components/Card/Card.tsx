@@ -6,14 +6,14 @@ export const Card: React.FC<{
   title: string
   subtitle: string
   img?: string
-} & React.HTMLProps<HTMLDivElement>> = ({ title, subtitle, img, children, ...rest }) => {
+} & React.HTMLProps<HTMLDivElement>> = ({ title, subtitle, img, children, href, ...rest }) => {
 
   return (
     <div className={styles.card} {...rest}>
       {img && <img src={img} alt="book" height={100} width={75}/>}
       <div className={styles.cardContainer}>
       <h3>
-        {title} - {subtitle}
+        <a href={href}>{title} - {subtitle}</a>
       </h3>
       {children}
       </div>

@@ -1,11 +1,25 @@
 import './App.css'
-import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom'
-import React, {Suspense } from 'react'
+import {
+  BrowserRouter,
+  generatePath,
+  Link,
+  NavLink,
+  Route,
+  Switch,
+} from 'react-router-dom'
+import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Header } from './components/layout/Header'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { DesignSystemProvider } from './basic-components/DesignSystemProvider/DesignSystemProvider'
 import { Routes } from './routes/routes'
+import {
+  BookDetailsRouteMatch,
+  BookISBNSearchRouteMatch,
+  BookListRouteMatch,
+} from './routes/config'
+import { Footer } from './components/layout/Footer'
+import { Content } from './components/layout/Content'
 
 const queryClient = new QueryClient()
 
@@ -27,25 +41,38 @@ function App() {
         <Header>
           <ul>
             <li>
-              <NavLink exact to="/home">Home</NavLink>
+              <NavLink exact to={'/home'}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink exact to="/isbn">ISBN</NavLink>
+              <NavLink exact to={BookISBNSearchRouteMatch}>
+                ISBN
+              </NavLink>
             </li>
             <li>
-              <NavLink exact to="/list">List</NavLink>
+              <NavLink exact to={BookListRouteMatch}>
+                List
+              </NavLink>
             </li>
           </ul>
         </Header>
-        <aside>
-        </aside>
-        <main>
+        <aside></aside>
+        <Content>
           <Switch>
-            {Routes.map(x => x)}
-            <Route path="/home">HOME</Route>
+            {Routes.map((x) => x)}
+            <Route path="/home">
+              <Link
+                to={generatePath(BookDetailsRouteMatch, {
+                  isbn: '9782205049879',
+                })}
+              >
+                Example book page
+              </Link>
+            </Route>
           </Switch>
-        </main>
-        <footer>Footer</footer>
+        </Content>
+        <Footer></Footer>
       </BrowserRouter>
     </AppProviders>
   )
