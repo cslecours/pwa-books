@@ -16,7 +16,7 @@ export const TextField: React.FC<
   return (
     <label className={styles.textfield}>
       {start && <span>{start}</span>}
-      <input type="text" onChange={onChange}/>
+      <input type="text" onChange={onChange} />
       {end && <span>{end}</span>}
     </label>
   )

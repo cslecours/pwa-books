@@ -5,12 +5,11 @@ import { Book } from '../services/bookModel'
 import { addBook } from '../services/bookStorage'
 import { Button } from '../basic-components/Button/Button'
 
-
 export const BookList: React.FC<{ books: Book[] }> = ({ books }) => {
   return (
     <ul>
       {books.map((book, index) => (
-        <li key={index} style={{marginBottom:4}}>
+        <li key={index} style={{ marginBottom: 4 }}>
           <Card
             img={book.covers && imageUrl(book.covers[0], 'M')}
             title={book.title}

@@ -1,7 +1,5 @@
 declare global {
   namespace JSX {
-    interface IntrinsicElements {
-    
-    }
+    interface IntrinsicElements {}
   }
 }

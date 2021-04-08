@@ -1,15 +1,15 @@
 .card {
-    --card-width: 300px;
-    --card-height:100px;
-    display:flex;
+  --card-width: 300px;
+  --card-height: 100px;
+  display: flex;
 }
 
 .card h3 {
-    margin:calc(var(--design-unit) * 1px) 0 0 calc(var(--design-unit) * 1px);
-    font-size: var(--base-font-size)
+  margin: calc(var(--design-unit) * 1px) 0 0 calc(var(--design-unit) * 1px);
+  font-size: var(--base-font-size);
 }
 
 .cardContainer {
-    display:flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,11 +1,10 @@
 .root {
-    --design-unit: 4;
-    --background-color: #ffffff;
-    --primary-background: #eeeeee;
-    --primary-foreground: #000000;
-    --base-font-size: 14px;
+  --design-unit: 4;
+  --background-color: #ffffff;
+  --primary-background: #eeeeee;
+  --primary-foreground: #000000;
+  --base-font-size: 14px;
 
-    --control-border:#333333;
-    --control-active-border: 2px solid #444444;
+  --control-border: #333333;
+  --control-active-border: 2px solid #444444;
 }
-

@@ -12,7 +12,16 @@ export const List: React.FC<{}> = () => {
   return (
     <div>
       {books.map((x, i) => (
-        <Card style={{marginBottom:8}} key={`${x.isbn_13}-${i}`} img={x.covers && imageUrl(x.covers[0],'M')} title={x.title} subtitle={x.subtitle} href={generatePath(BookDetailsRouteMatch, {isbn:books[0].isbn_13[0]})} />
+        <Card
+          style={{ marginBottom: 8 }}
+          key={`${x.isbn_13}-${i}`}
+          img={x.covers && imageUrl(x.covers[0], 'M')}
+          title={x.title}
+          subtitle={x.subtitle}
+          href={generatePath(BookDetailsRouteMatch, {
+            isbn: books[0].isbn_13[0],
+          })}
+        />
       ))}
     </div>
   )

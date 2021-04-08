@@ -12,7 +12,7 @@ export const useISBNQuery = (value: string) => {
   const query = useQuery<Book, Error>(
     createISBNQueryKey(isbn),
     () => fetchBookByISBN(isbn),
-    { retry: false, staleTime: 60_000_000, enabled:valid }
+    { retry: false, staleTime: 60_000_000, enabled: valid }
   )
 
   return {
@@ -44,6 +44,6 @@ export const useISBNSearchQuery: () => {
 
   return {
     onChange,
-    ...query
+    ...query,
   }
 }
