@@ -9,10 +9,10 @@ import { BookDetailsRouteMatch } from '../routes/config'
 export const List: React.FC<{}> = () => {
   const books: Book[] = getBooks()
   return (
-    <div style={{display:"flex", flexWrap: "wrap"}}>
+    <div style={{display:"flex", flexWrap: "wrap", background:'#ddd', padding:10}}>
       {books.map((x, i) => (
         <Card
-          style={{ maxWidth: 300, marginRight:20 }}
+          style={{ maxWidth: 300, marginRight:20, marginBottom:20 }}
           key={`${x.isbn_13}-${i}`}
           thumbnail={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'S')}/>}
           mediaContent={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'M')}/>}
