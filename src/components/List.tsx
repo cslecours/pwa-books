@@ -14,8 +14,8 @@ export const List: React.FC<{}> = () => {
         <Card
           style={{ maxWidth: 300, marginRight:20, marginBottom:20 }}
           key={`${x.isbn_13}-${i}`}
-          thumbnail={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'S')}/>}
-          mediaContent={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'M')}/>}
+          thumbnail={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'S')} alt=""/>}
+          mediaContent={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'M')} alt=""/>}
           title={x.title}
           secondary={x.subtitle}
           href={generatePath(BookDetailsRouteMatch, {
