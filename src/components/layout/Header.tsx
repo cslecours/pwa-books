@@ -1,10 +1,11 @@
+import { Typography } from '../../basic-components/Typography/Typography'
 import styles from './Header.module.css'
 
 export const Header: React.FC = ({ children }) => (
   <header className={styles.header}>
-    <h1>
+    <Typography variant="h1">
       <a href={'/'}>Book Pages</a>
-    </h1>
+    </Typography>
     {children}
   </header>
 )

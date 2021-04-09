@@ -3,22 +3,25 @@ import styles from './Card.module.css'
 
 export const Card: React.FC<
   {
-    title: string
-    subtitle: string
-    img?: string
+    title?: React.ReactNode;
+    secondary?: React.ReactNode;
+    thumbnail?: React.ReactNode;
+    mediaContent?: React.ReactNode;
+    actions?:React.ReactNode;
   } & React.HTMLProps<HTMLDivElement>
-> = ({ title, subtitle, img, children, href, ...rest }) => {
+> = ({ title, secondary, thumbnail, mediaContent, actions, children, ...rest }) => {
   return (
     <div className={styles.card} {...rest}>
-      {img && <img src={img} alt="book" height={100} width={75} />}
-      <div className={styles.cardContainer}>
-        <h3>
-          <a href={href}>
-            {title} - {subtitle}
-          </a>
-        </h3>
+      <div className={styles.headerContainer}>
+        {thumbnail && <div className={styles.thumbnail}>{thumbnail}</div>}
+        <div>
+          {title && <div className={styles.title}>{title}</div>}
+          {secondary && <div className={styles.secondary}>{secondary}</div>}
+        </div>
         {children}
       </div>
+      {mediaContent && <div className={styles.media}>{mediaContent}</div>}
+      {actions && <div className={styles.actions}>{actions}</div>}
     </div>
   )
 }

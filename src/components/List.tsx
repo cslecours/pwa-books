@@ -9,14 +9,15 @@ import { BookDetailsRouteMatch } from '../routes/config'
 export const List: React.FC<{}> = () => {
   const books: Book[] = getBooks()
   return (
-    <div>
+    <div style={{display:"flex", flexWrap: "wrap"}}>
       {books.map((x, i) => (
         <Card
-          style={{ marginBottom: 8 }}
+          style={{ maxWidth: 300, marginRight:20 }}
           key={`${x.isbn_13}-${i}`}
-          img={x.covers && imageUrl(x.covers[0], 'M')}
+          thumbnail={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'S')}/>}
+          mediaContent={x.covers && <img src={x.covers && imageUrl(x.covers[0], 'M')}/>}
           title={x.title}
-          subtitle={x.subtitle}
+          secondary={x.subtitle}
           href={generatePath(BookDetailsRouteMatch, {
             isbn: books[0].isbn_13[0],
           })}

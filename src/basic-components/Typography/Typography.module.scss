@@ -1,0 +1,45 @@
+@mixin baseTypography() {
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @include baseTypography();
+}
+
+
+.h1 {
+    font-size: calc(var(--base-font-size) + 15px);
+}
+
+.h2 {
+    font-size: calc(var(--base-font-size) + 10px);
+}
+
+.h3 {
+    font-size: calc(var(--base-font-size) + 5px);
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+}
+
+.h4 {
+    font-size: calc(var(--base-font-size));
+}
+
+.h5 {
+    font-size: calc(var(--base-font-size) - 2px);
+}
+
+.h6 {
+    font-size: calc(var(--base-font-size) - 4px);
+}
+
+.span {
+    @include baseTypography();
+    font-size: calc(var(--base-font-size));
+}

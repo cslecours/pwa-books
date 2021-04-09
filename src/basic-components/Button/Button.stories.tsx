@@ -4,18 +4,26 @@ import { Story } from '@storybook/react'
 
 import { Button } from './Button'
 
-//👇 This default export determines where your story goes in the story list
 export default {
   title: 'Button',
   component: Button,
+  argTypes: { onClick: { action: 'clicked' } },
 }
 
-//👇 We create a “template” of how args map to rendering
 const Template: Story<ComponentProps<typeof Button>> = (args) => (
+  <>
+  <h3>Normal Button</h3>
+  
   <Button {...args} />
+  &nbsp;
+  <Button {...args} variant="outline" />
+  
+  <h3>Disabled Button</h3>
+  <Button {...args} disabled />
+  </>
 )
 
-export const FirstStory = Template.bind({})
-FirstStory.args = {
+export const Default = Template.bind({})
+Default.args = {
   children: 'Click',
 }

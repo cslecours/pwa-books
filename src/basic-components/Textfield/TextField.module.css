@@ -1,14 +1,14 @@
 .textfield {
-  --border-radius: calc(var(--design-unit) * 1px);
   --border-size: 1px;
   --border-type: solid;
-  --border-color: #333;
+  --border-color: var(--control-border);
   --padding: calc(var(--design-unit) * 1px);
 
   display: inline-block;
   border: var(--border-size) var(--border-type) var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--padding);
+  box-shadow: 0 0 1px transparent;
 }
 
 .textfield:focus-within {
@@ -19,7 +19,10 @@
 
 .textfield input {
   border: 0;
+  height:calc(var(--base-font-size) + 9px);
   outline: none;
+  font-size:calc(var(--base-font-size) + 5px);
+
 }
 
 .textfield input:active,

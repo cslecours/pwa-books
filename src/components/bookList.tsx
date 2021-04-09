@@ -11,20 +11,18 @@ export const BookList: React.FC<{ books: Book[] }> = ({ books }) => {
       {books.map((book, index) => (
         <li key={index} style={{ marginBottom: 4 }}>
           <Card
-            img={book.covers && imageUrl(book.covers[0], 'M')}
             title={book.title}
-            subtitle={book.subtitle}
-          >
-            <Button
+            secondary={book.subtitle}
+            thumbnail={book.covers && <img src={book.covers && imageUrl(book.covers[0], 'M')}/>}
+            actions={  <Button
               style={{ margin: 'calc(var(--design-unit) * 2px)' }}
               onClick={() => {
                 addBook(book)
               }}
             >
               Add
-            </Button>
-          </Card>
-
+            </Button>}
+          />
           <code>
             <pre>{JSON.stringify(book, undefined, 2)}</pre>
           </code>

@@ -22,6 +22,7 @@
   color: inherit;
   padding: calc(var(--design-unit) * 2px);
   border-radius: calc(var(--design-unit) * 2px);
+  font-family: var(--font-family);
 }
 
 .header a:hover {
