@@ -13,7 +13,7 @@ export const BookList: React.FC<{ books: Book[] }> = ({ books }) => {
           <Card
             title={book.title}
             secondary={book.subtitle}
-            thumbnail={book.covers && <img src={book.covers && imageUrl(book.covers[0], 'M')} alt=""/>}
+            thumbnail={book.covers && <img src={book.covers && imageUrl(book.covers[0], 'M')}/>}
             actions={  <Button
               style={{ margin: 'calc(var(--design-unit) * 2px)' }}
               onClick={() => {
