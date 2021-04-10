@@ -1,5 +1,3 @@
-import { createImportSpecifier } from 'typescript'
-
 export function parseISBN(isbn: string) {
   const value = isbn.replace(/[^0-9X]/gi, '')
   let error: 'length' | 'format13' | 'format10' | undefined = undefined
@@ -56,13 +54,15 @@ export function validateISBN10(isbn: string): boolean {
 
 function validateISBN13(isbn: string): boolean {
   let valid = false
-  const remainder = total(isbn, (idx) => (idx % 2 ? 1 : 3)) % 10
+  const remainder = total(isbn, (idx) => (idx % 2 === 0 ? 1 : 3)) % 10
+
   const checkDigit = parseInt(isbn.slice(-1), 10)
+  console.log(remainder, checkDigit)
   if (remainder === 0) {
     valid = checkDigit === 0
   } else {
     const restOfRemainder = 10 - remainder
-    valid = restOfRemainder === checkDigit || remainder == checkDigit
+    valid = restOfRemainder === checkDigit || remainder === checkDigit
   }
   return valid
 }
