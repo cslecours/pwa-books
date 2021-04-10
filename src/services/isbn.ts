@@ -1,27 +1,13 @@
 export function parseISBN(isbn: string) {
-  const value = isbn.replace(/\D/g, '')
+  const value = isbn.replace(/(-|\s)/g, '')
   let error: 'length' | 'format13' | 'format10' | undefined = undefined
   let valid = false
   if (value.length === 13) {
-    const sum = Array.from(value.slice(0, 12)).reduce(
-      (acc, curr, currentIndex) => {
-        const digit = parseInt(curr, 10)
-        const multiplier = currentIndex % 2 === 0 ? 1 : 3
-        return acc + digit * multiplier
-      },
-      0
-    )
-    const remainder = sum % 10
-    if (remainder === 0) {
-      valid = true
-    } else {
-      const lastDigit = parseInt(value.slice(-1), 10)
-      valid = 10 - remainder === lastDigit
-    }
-    if (!valid) {
-      error = 'format13'
-    }
-    console.log(sum % 10, value.slice(-1))
+    valid = validateISBN13(value)
+    if (!valid) error = 'format13'
+  } else if (value.length === 10) {
+    valid = validateISBN10(value)
+    if (!valid) error = 'format10'
   } else {
     error = 'length'
   }
@@ -32,4 +18,35 @@ export function parseISBN(isbn: string) {
     value,
     ...(error ? { error } : {}),
   }
+}
+
+function total(isbn: string, getMultiplier: (index: number) => number) {
+  const length = isbn.length - 1
+  const total = Array.from(isbn.slice(0, length)).reduce(
+    (acc, curr, currentIndex) => {
+      const digit = parseInt(curr, 10)
+      const multiplier = getMultiplier(currentIndex)
+      return acc + digit * multiplier
+    },
+    0
+  )
+  return total
+}
+
+export function validateISBN10(isbn: string): boolean {
+  const lastChar = isbn.slice(-1)
+  const check = lastChar === 'X' ? 10 : parseInt(lastChar)
+  return total(isbn, (idx) => idx + 1) % 11 === check
+}
+
+function validateISBN13(isbn: string): boolean {
+  let valid = false
+  const remainder = total(isbn, (idx) => (idx % 2 ? 1 : 3))
+  if (remainder === 0) {
+    valid = true
+  } else {
+    const lastDigit = parseInt(isbn.slice(-1), 10)
+    valid = 10 - remainder === lastDigit
+  }
+  return valid
 }
