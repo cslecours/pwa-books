@@ -6,41 +6,40 @@
   border-radius: var(--border-radius);
   font-family: var(--font-family);
 
-  overflow:hidden;
+  overflow: hidden;
 
   /* TODO */
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  box-shadow: var(--elevation-1);
 }
 
 .headerContainer {
-  display:flex;
+  display: flex;
   padding: var(--card-margin);
 }
 
 .thumbnail > * {
-  width:44px;
-  height:44px;
-  overflow:hidden;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
   border-radius: 100%;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 .media {
-  background:#333;
+  background: #333;
 }
 
 .media > * {
-  width:100%;
+  width: 100%;
 }
 
 .media + .actions {
-  margin-top:var(--card-margin);
+  margin-top: var(--card-margin);
 }
 
 .title {
   font-weight: 550;
-  font-size:calc(var(--base-font-size) + 6px);
+  font-size: calc(var(--base-font-size) + 6px);
 }
 
 .secondary {

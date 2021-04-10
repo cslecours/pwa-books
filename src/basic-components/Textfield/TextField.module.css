@@ -3,6 +3,7 @@
   --border-type: solid;
   --border-color: var(--control-border);
   --padding: calc(var(--design-unit) * 1px);
+  background: var(--ui-base-00);
 
   display: inline-block;
   border: var(--border-size) var(--border-type) var(--border-color);
@@ -15,18 +16,17 @@
   border-width: calc(var(--border-size) * 2);
   padding: calc(var(--padding) - 1px);
   box-sizing: content-box;
+  border-color: var(--accent-color);
 }
 
 .textfield input {
   border: 0;
-  height:calc(var(--base-font-size) + 9px);
+  height: calc(var(--base-font-size) + 9px);
   outline: none;
-  font-size:calc(var(--base-font-size) + 5px);
-
+  font-size: calc(var(--base-font-size) + 5px);
 }
 
 .textfield input:active,
 .textfield input:focus {
-  border: 0;
   outline: 0;
 }

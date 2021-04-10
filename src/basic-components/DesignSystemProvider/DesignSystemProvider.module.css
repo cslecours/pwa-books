@@ -8,14 +8,19 @@
   --control-border: #333333;
   --control-active-border: 2px solid #444444;
   --ui-base-00: #ffffff;
-  --ui-base-01: #dddddd;
-  --ui-base-02: #aaaaaa;
-  --ui-base-03: #777777;
+  --ui-base-01: #dbdbdb;
+  --ui-base-02: #c5c5c5;
+  --ui-base-03: #727272;
   --ui-base-04: #999999;
+
+  --accent-color: #0d9457;
 
   --border-radius: 4px;
 
-
+  --elevation-1: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  --elevation-2: 0px 5px 5px -3px rgb(0 0 0 / 20%),
+    0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
   --font-family: Roboto, sans-serif;
 
   -webkit-font-smoothing: antialiased;
@@ -32,6 +37,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'),
-       url('../../fonts/roboto-v27-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../../fonts/roboto-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('../../fonts/roboto-v27-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../../fonts/roboto-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
