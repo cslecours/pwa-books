@@ -1,12 +1,13 @@
 export function parseISBN(isbn: string) {
-  const value = isbn.replace(/(-|\s)/g, '')
+  const value = isbn
   let error: 'length' | 'format13' | 'format10' | undefined = undefined
   let valid = false
+  valid = value.length === 13 || value.length === 10
   if (value.length === 13) {
-    valid = validateISBN13(value)
+    let valid = validateISBN13(value)
     if (!valid) error = 'format13'
   } else if (value.length === 10) {
-    valid = validateISBN10(value)
+    let valid = validateISBN10(value)
     if (!valid) error = 'format10'
   } else {
     error = 'length'

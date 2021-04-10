@@ -7,7 +7,7 @@ import { parseISBN } from '../services/isbn'
 const createISBNQueryKey = (isbn: string) => ['isbn-query', isbn]
 
 export const useISBNQuery = (value: string) => {
-  const { valid, value: isbn } = parseISBN(value)
+  const { valid, error, value: isbn } = parseISBN(value)
 
   const query = useQuery<Book, Error>(
     createISBNQueryKey(isbn),
@@ -19,17 +19,14 @@ export const useISBNQuery = (value: string) => {
     book: query.data,
     error: query.error,
     loading: query.isLoading,
+    isbnValidation: error,
     valid,
   }
 }
 
 export const useISBNSearchQuery: () => {
   onChange: (evt: React.ChangeEvent<HTMLInputElement>) => void
-  book: Book | undefined
-  valid: boolean | undefined
-  error: Error | null
-  loading: boolean | undefined
-} = () => {
+} & ReturnType<typeof useISBNQuery> = () => {
   const [value, setValue] = useState('')
 
   const onChange = useCallback(

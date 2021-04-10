@@ -10,6 +10,7 @@ describe('parseIsbn10', () => {
     ${'1234512345'}  | ${false}
     ${'048665088X'}  | ${true}
     ${'X123456788'}  | ${false}
+    ${'2222222222'}  | ${true}
   `('should return $output when $input', ({ input, output }) => {
     const { valid } = parseISBN(input)
     expect(valid).toBe(output)

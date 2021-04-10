@@ -4,11 +4,27 @@ import { useISBNSearchQuery } from '../hooks/useISBNQuery'
 import { TextField } from '../basic-components/Textfield/TextField'
 
 export const ISBNSearch: React.FC = () => {
-  const { onChange, valid, loading, error, book } = useISBNSearchQuery()
+  const {
+    onChange,
+    loading,
+    error,
+    isbnValidation,
+    book,
+  } = useISBNSearchQuery()
 
   return (
     <div>
-      <TextField onChange={onChange} start={'🔎'} end={valid ? '✔' : '❌'} />
+      <TextField
+        onChange={onChange}
+        start={'🔎'}
+        end={
+          isbnValidation === 'length'
+            ? undefined
+            : !!isbnValidation
+            ? '✔'
+            : '❌'
+        }
+      />
 
       <p></p>
       {!loading && error && 'ERROR'}
