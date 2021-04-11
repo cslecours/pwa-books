@@ -57,12 +57,11 @@ function validateISBN13(isbn: string): boolean {
   const remainder = total(isbn, (idx) => (idx % 2 === 0 ? 1 : 3)) % 10
 
   const checkDigit = parseInt(isbn.slice(-1), 10)
-  console.log(remainder, checkDigit)
   if (remainder === 0) {
     valid = checkDigit === 0
   } else {
     const restOfRemainder = 10 - remainder
-    valid = restOfRemainder === checkDigit || remainder === checkDigit
+    valid = restOfRemainder === checkDigit
   }
   return valid
 }

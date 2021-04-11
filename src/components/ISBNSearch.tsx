@@ -8,6 +8,7 @@ export const ISBNSearch: React.FC = () => {
     onChange,
     loading,
     error,
+    valid,
     isbnValidation,
     book,
   } = useISBNSearchQuery()
@@ -18,11 +19,11 @@ export const ISBNSearch: React.FC = () => {
         onChange={onChange}
         start={'🔎'}
         end={
-          isbnValidation === 'length'
-            ? undefined
-            : !!isbnValidation
-            ? '✔'
-            : '❌'
+          isbnValidation === 'length' ? undefined : valid ? (
+            '✔'
+          ) : (
+            <span title={isbnValidation}>❌</span>
+          )
         }
       />
 

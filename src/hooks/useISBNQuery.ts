@@ -8,6 +8,7 @@ const createISBNQueryKey = (isbn: string) => ['isbn-query', isbn]
 
 export const useISBNQuery = (value: string) => {
   const { valid, error, value: isbn } = parseISBN(value)
+  console.log(parseISBN(value))
 
   const query = useQuery<Book, Error>(
     createISBNQueryKey(isbn),
