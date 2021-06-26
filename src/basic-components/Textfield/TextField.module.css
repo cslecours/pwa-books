@@ -9,7 +9,6 @@
   border: var(--border-size) var(--border-type) var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--padding);
-  box-shadow: 0 0 1px transparent;
 }
 
 .textfield:focus-within {

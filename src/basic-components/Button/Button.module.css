@@ -1,41 +1,37 @@
 .button {
-  background: var(--accent-background);
+  /* Standard values so LinkButton and Button behaves the same */
+  display: inline-block;
+  border-style: outset;
+  border-width: 2px;
+  cursor: pointer;
+
+  /* */
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+
+  --button-background: #008cba;
+  --button-color: var(--font-dark);
+  --button-padding: calc(var(--design-unit) * 2px);
+
+  background: var(--button-background);
+  color: var(--button-color);
+  border-color: var(--button-background);
   padding: calc(var(--design-unit) * 2px);
   border-radius: var(--border-radius);
-  box-sizing: border-box;
-  border-width: 1px 1px 0 1px;
-  border-style: solid;
-  border-color: var(--ui-base-02);
-  outline: none;
-  box-shadow: var(--elevation-1);
 }
 
 .button:hover {
-  background: var(--ui-base-03);
+  --button-background: #029fd3;
 }
 
-.button:focus {
-  background: var(--ui-base-02);
+.button:disabled,
+.button.disabled {
+  --button-background: #aaa;
+  --button-color: #ddd;
+  cursor: default;
 }
 
 .button:active {
-  background: var(--ui-base-01);
-  box-shadow: var(--elevation-2);
-}
-
-.outline,
-.outline:active,
-.outline:hover,
-.outline:focus {
-  background: transparent;
-  border-width: 2px;
-  padding: calc(var(--design-unit) * 2px - 1px);
-}
-
-.outline:active {
-  border-color: var(--control-active-border);
-}
-
-.outline:hover {
-  border-color: var(--control-active-border);
+  border-style: inset;
+  --button-background: #005e7e;
 }
