@@ -3,7 +3,6 @@ import { Content } from './Content'
 import { Header } from './Header'
 
 import styles from './AppLayout.module.css'
-import { Footer } from './Footer'
 
 export interface AppLayoutProps {
   header: React.ReactElement
