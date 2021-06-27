@@ -1,4 +1,4 @@
-.button {
+.root {
   /* Standard values so LinkButton and Button behaves the same */
   display: inline-block;
   border-style: outset;
@@ -9,29 +9,29 @@
   font-family: var(--font-family);
   font-size: var(--font-size);
 
-  --button-background: #008cba;
+  --button-background: var(--accent-color);
   --button-color: var(--font-dark);
   --button-padding: calc(var(--design-unit) * 2px);
 
   background: var(--button-background);
   color: var(--button-color);
   border-color: var(--button-background);
-  padding: calc(var(--design-unit) * 2px);
+  padding: var(--button-padding);
   border-radius: var(--border-radius);
 }
 
-.button:hover {
+.root:hover {
   --button-background: #029fd3;
 }
 
-.button:disabled,
-.button.disabled {
+.root:disabled,
+.root.disabled {
   --button-background: #aaa;
   --button-color: #ddd;
   cursor: default;
 }
 
-.button:active {
+.root:active {
   border-style: inset;
   --button-background: #005e7e;
 }

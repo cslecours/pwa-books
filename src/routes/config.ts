@@ -1,3 +1,5 @@
+export const HomeRouteMatch = '/home'
+
 export const BookDetailsRouteMatch = '/isbn/:isbn'
 export type BookDetailsRoute = {
   match: typeof BookDetailsRouteMatch

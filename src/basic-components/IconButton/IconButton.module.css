@@ -1,0 +1,75 @@
+.root {
+  /* Standard values */
+  display: inline-block;
+
+  border-width: 0px;
+  cursor: pointer;
+
+  /* */
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  box-sizing: content-box;
+  border-radius: 100%;
+  display: flex;
+
+  --button-normal-background: var(--accent-color);
+  --button-hover-background: #aaa;
+  --button-hover-color: #333;
+  --button-active-background: #ddd;
+  --button-active-color: #333;
+  --button-disabled-background: #aaa;
+  --button-disabled-color: #eee;
+
+  --size: 32px;
+  --button-background: var(--button-normal-background);
+  --button-color: var(--font-dark);
+  --button-padding: calc(var(--design-unit) * 1px);
+
+  box-shadow: 1px;
+  padding: var(--button-padding);
+  background: var(--button-background);
+  border-color: var(--button-background);
+
+  fill: var(--button-color);
+}
+
+.root svg {
+  width: var(--size);
+  height: var(--size);
+}
+
+.root:hover {
+  --button-background: var(--button-hover-background);
+  --button-color: var(--button-hover-color);
+}
+
+.root:active {
+  --button-background: var(--button-active-background);
+  --button-color: var(--button-active-color);
+}
+
+.root:disabled,
+.root.disabled {
+  --button-background: var(--button-disabled-background);
+  --button-color: var(--button-disabled-color);
+  cursor: default;
+}
+
+.root.borderless {
+  --button-normal-background: transparent;
+  --button-normal-color: var(--font-dark);
+  --button-hover-background: rgba(255, 255, 255, 0.1);
+  --button-hover-color: var(--button-normal-color);
+}
+
+.small {
+  --size: 24px;
+}
+
+.medium {
+  --size: 32px;
+}
+
+.large {
+  --size: 48px;
+}

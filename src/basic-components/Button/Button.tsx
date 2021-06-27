@@ -14,7 +14,7 @@ export const Button: React.FC<
 > = ({ children, variant, ...rest }) => {
   return (
     <button
-      className={classNames(styles.button, {
+      className={classNames(styles.root, {
         [styles.outline]: variant === 'outline',
       })}
       {...rest}

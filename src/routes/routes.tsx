@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react'
-import { Route } from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 import {
+  HomeRouteMatch,
   BookDetailsRouteMatch,
   BookISBNSearchRouteMatch,
   BookListRouteMatch,
@@ -21,6 +22,15 @@ function makeRoute(
 }
 
 export const Routes = [
+  <Route
+    key={HomeRouteMatch}
+    exact
+    path="/"
+    render={() => {
+      return true ? <Redirect to={HomeRouteMatch} /> : <Redirect to="/test1" />
+    }}
+  ></Route>,
+  makeRoute(HomeRouteMatch, () => import('../pages/Home')),
   makeRoute(BookListRouteMatch, () => import('../components/List')),
   makeRoute(BookISBNSearchRouteMatch, () => import('../components/ISBNSearch')),
   makeRoute(BookDetailsRouteMatch, () => import('./book-details')),

@@ -1,5 +1,6 @@
 .footer {
   margin-top: 20px;
-  background: var(--primary-background);
-  min-height: 300px;
+  width: 100%;
+  background: #666;
+  min-height: 20px;
 }

@@ -14,7 +14,7 @@ export const LinkButton: React.FC<
 > = ({ children, variant, disabled, ...rest }) => {
   return (
     <a
-      className={classNames(styles.button, {
+      className={classNames(styles.root, {
         [styles.disabled]: disabled,
       })}
       {...rest}
